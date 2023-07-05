@@ -9,13 +9,15 @@
 name: Java CI with Maven
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       run:
         type: boolean
+        description: ''
         required: false
       testomatio:
         type: boolean
+        description: ''
         required: false
 
 jobs:
