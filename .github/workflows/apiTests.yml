@@ -9,10 +9,14 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_call:
+    inputs:
+      run:
+        type: boolean
+        required: false
+      testomatio:
+        type: boolean
+        required: false
 
 jobs:
   test:
@@ -28,6 +32,9 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Execute tests with Maven
+      env:
+        TESTOMATIO: ${{ github.event.inputs.testomatio }}
+        TESTOMATIO_RUN: ${{ github.event.inputs.run }}
       run: mvn clean test
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
