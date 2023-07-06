@@ -47,5 +47,5 @@ jobs:
       - name: Execute collection of metrics to the Testomat
         run: |
           npm i -g @testomatio/reporter
+          cat /home/runner/work/PoC-testomatio/PoC-testomatio
           TESTOMATIO=455911d76f74 npx report-xml "/target/surefire-reports/**.xml" --java-tests=src/test/java
-          echo pwd
