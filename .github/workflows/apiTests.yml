@@ -37,3 +37,13 @@ jobs:
         echo "testomatio: " ${{ github.event.inputs.testomatio }}
         echo "testomatio_run: " ${{ github.event.inputs.run }}
         mvn clean test
+
+  testomat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Execute collection of metrics to the Testomat
+        run: |
+          TESTOMATIO=455911d76f74 npx report-xml "/target/surefire-reports/**.xml" --java-tests=src/test/java
+          echo pwd
