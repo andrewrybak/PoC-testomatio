@@ -43,7 +43,7 @@ jobs:
       run: |
         npm i -g @testomatio/reporter
         echo "ls folder"
-        ls /home/runner/work/PoC-testomatio/PoC-testomatio
+        ls /home/runner/work/PoC-testomatio/PoC-testomatio/target/surefire-reports
         TESTOMATIO=455911d76f74 npx report-xml "/target/surefire-reports/**.xml" --java-tests=src/test/java
 
 #  testomat:
