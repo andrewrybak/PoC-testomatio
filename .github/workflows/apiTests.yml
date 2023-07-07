@@ -16,7 +16,7 @@ on:
         description: ''
         required: false
       testomatio:
-        type: boolean
+        type: string
         description: ''
         required: false
 
