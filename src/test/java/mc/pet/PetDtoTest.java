@@ -90,4 +90,11 @@ class PetDtoTest extends BaseTestCase {
 
         assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("unavailable");
     }
+
+    @Test
+    @Tags(value = {@Tag("pets"), @Tag("regression")})
+    @DisplayName("demo")
+    void demoTest2(){
+        assertThat(true).isEqualTo(true);
+    }
 }
