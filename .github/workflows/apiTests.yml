@@ -42,17 +42,4 @@ jobs:
     - name: Execute collection of metrics to the Testomat
       run: |
         npm i -g @testomatio/reporter
-        TESTOMATIO=${{ github.event.inputs.testomatio }} npx report-xml "/home/runner/work/PoC-testomatio/PoC-testomatio//target/surefire-reports/**.xml" --java-tests=src/test/java
-
-#  testomat:
-#    runs-on: ubuntu-latest
-#    needs: [ test ]
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Execute collection of metrics to the Testomat
-#        run: |
-#          npm i -g @testomatio/reporter
-#          echo "ls folder"
-#          ls /home/runner/work/PoC-testomatio/PoC-testomatio
-#          TESTOMATIO=455911d76f74 npx report-xml "/target/surefire-reports/**.xml" --java-tests=src/test/java
+        TESTOMATIO=TESTOMATIO npx report-xml "/home/runner/work/PoC-testomatio/PoC-testomatio/target/surefire-reports/**.xml" --java-tests=src/test/java
