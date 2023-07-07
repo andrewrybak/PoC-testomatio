@@ -12,11 +12,9 @@ on:
         required: false
         default: ''
       run:
-        type: string
         description: ''
         required: false
       testomatio:
-        type: string
         description: ''
         required: false
 
