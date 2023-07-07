@@ -7,6 +7,10 @@ on:
 #    branches: [ "main" ]
   workflow_dispatch:
     inputs:
+      grep:
+        description: 'A grep '
+        required: false
+        default: ''
       run:
         type: boolean
         description: ''
