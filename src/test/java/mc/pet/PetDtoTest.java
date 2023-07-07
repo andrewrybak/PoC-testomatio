@@ -88,6 +88,6 @@ class PetDtoTest extends BaseTestCase {
                 .post("/pet")
                 .then();
 
-        assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("available");
+        assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("unavailable");
     }
 }
