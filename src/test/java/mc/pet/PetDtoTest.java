@@ -92,23 +92,23 @@ class PetDtoTest extends BaseTestCase {
 
     }
 
-//    @Test
-//    @Tags(value = {@Tag("pets"), @Tag("regression")})
-//    @DisplayName("Verify ability to create the pet with available status")
-//    void verifyCreatePetWithStatusAvailable() {
-//        var pet = PetDto.builder()
-//                .id(faker.number().randomNumber())
-//                .name(faker.name().name())
-//                .photoUrls(Collections.singletonList(faker.witcher().quote()))
-//                .status("available")
-//                .build();
-//
-//        ValidatableResponse response = given()
-//                .spec(buildRequestSpecification(pet))
-//                .when()
-//                .post("/pet")
-//                .then();
-//
-//        assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("unavailable");
-//    }
+    @Test
+    @Tags(value = {@Tag("pets"), @Tag("regression")})
+    @DisplayName("Verify ability to create the pet with available status")
+    void verifyCreatePetWithStatusAvailable() {
+        var pet = PetDto.builder()
+                .id(faker.number().randomNumber())
+                .name(faker.name().name())
+                .photoUrls(Collections.singletonList(faker.witcher().quote()))
+                .status("available")
+                .build();
+
+        ValidatableResponse response = given()
+                .spec(buildRequestSpecification(pet))
+                .when()
+                .post("/pet")
+                .then();
+
+        assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("unavailable");
+    }
 }
