@@ -89,6 +89,7 @@ class PetDtoTest extends BaseTestCase {
                 .then();
 
         assertThat(response.extract().body().jsonPath().getString("status")).isEqualTo("unavailable");
+
     }
 
 //    @Test
