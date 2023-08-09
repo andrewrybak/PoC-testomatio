@@ -1,45 +1,45 @@
-#name: Trigger tests manually
-#
-#on:
-#  push:
-#    branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
-#  workflow_dispatch:
-#    inputs:
-#      grep:
-#        description: 'A grep '
-#        required: false
-#        default: ''
-#      run:
-#        description: ''
-#        required: false
-#      testomatio:
-#        description: ''
-#        required: false
-#
-#jobs:
-#  test:
-#    name: API Tests
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v3
-#
-#    - name: Set up JDK 17
-#      uses: actions/setup-java@v3
-#      with:
-#        java-version: '17'
-#        distribution: 'temurin'
-#        cache: maven
-#
-#    - name: Execute tests with Maven
-#      run: |
-#        mvn clean test
-#      env:
-#        TESTOMATIO: ${{ github.event.inputs.testomatio }}
-#        TESTOMATIO_RUN: ${{ github.event.inputs.run }}
-#
-#    - name: Execute collection of metrics to the Testomat
-#      run: |
-#        npm i -g @testomatio/reporter
-#        TESTOMATIO=${{ github.event.inputs.testomatio }} npx report-xml "/home/runner/work/PoC-testomatio/PoC-testomatio/target/surefire-reports/**.xml" --java-tests=src/test/java
+name: Trigger tests manually
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      grep:
+        description: 'A grep '
+        required: false
+        default: ''
+      run:
+        description: ''
+        required: false
+      testomatio:
+        description: ''
+        required: false
+
+jobs:
+  test:
+    name: API Tests
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Execute tests with Maven
+      run: |
+        mvn clean test
+      env:
+        TESTOMATIO: ${{ github.event.inputs.testomatio }}
+        TESTOMATIO_RUN: ${{ github.event.inputs.run }}
+
+    - name: Execute collection of metrics to the Testomat
+      run: |
+        npm i -g @testomatio/reporter
+        TESTOMATIO=${{ github.event.inputs.testomatio }} npx report-xml "/home/runner/work/PoC-testomatio/PoC-testomatio/target/surefire-reports/**.xml" --java-tests=src/test/java
